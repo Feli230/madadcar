@@ -1,0 +1,299 @@
+.client-container {
+    /* height: 30%;
+    width: 100vw;
+    max-height: 800px;
+    max-width: 1280px;
+    min-height: 400px;
+    min-width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto; */
+    height: 100vh;
+    width: 100vw;
+    max-height: 800px;
+    max-width: 1280px;
+    min-height: 600px;
+    min-width: 300% !important;
+
+    /* min-width: 1000px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+  .client-border {
+    height: 369px;
+    width: 290px;
+    border-radius: 5px;
+    transition: border 1s;
+    position: relative;
+
+    background: black;
+    opacity: 0.5;
+  }
+  .client-border:hover {
+    border: 1px solid #fff;
+    background: transparent;
+
+    opacity: 1 !important;
+  }
+  .client-card {
+    border: 0px !important;
+    margin: 10px;
+    height:350px !important;
+    width: 300px;
+    background: #808080;
+    border-radius: 10px;
+    transition: background 0.8s;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 70px 63px -60px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #000 !important;
+  }
+ .card:hover h2 {
+    opacity: 1;
+  }
+  .card h2 {  
+    opacity: 0;
+  }
+  .card:hover .fa {
+    opacity: 0;
+  }
+
+  .card0 {
+    background: url("/assets/images/breakdown.jpg") left center no-repeat;
+    background-size: 600px;
+  }
+  .card0:hover {
+    
+    background: url("/assets/images/breakdown.jpg") center center no-repeat; 
+    background-size: 533px;
+  }
+  /* .card0:hover h2 {
+    opacity: 1;
+  }
+  .card0:hover .fa {
+    opacity: 1;
+  } */
+  .card1 {
+    background: url("/assets/images/battery.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card1:hover {
+    background: url("/assets/images/battery.jpg") left center no-repeat;
+    background-size: 600px;
+  }
+  /* .card1:hover h2 {
+    opacity: 1;
+  }
+  .card1:hover .fa {
+    opacity: 1;
+  } */
+  .card2 {
+    background: url("/assets/images/carlock.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card2:hover {
+    background: url("/assets/images/carlock.jpg") left center no-repeat;
+    background-size: 600px;
+  }
+
+
+  .card3 {
+    background: url("/assets/images/towtruck.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card3:hover {
+    background: url("/assets/images/towtruck.jpg") right center no-repeat;
+    background-size: 600px;
+  }
+
+  .card4 {
+    background: url("/assets/images/flattyre.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card4:hover {
+    background: url("/assets/images/flattyre.jpg") right center no-repeat;
+    background-size: 600px;
+  }
+
+  .card5 {
+    background: url("/assets/images/refueling.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card5:hover {
+    background: url("/assets/images/refueling.jpg") right center no-repeat;
+    background-size: 600px;
+  }
+
+  .card6 {
+    background: url("/assets/images/carwash.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card6:hover {
+    background: url("/assets/images/carwash.jpg") left center no-repeat;
+    background-size: 600px;
+  }
+
+  .card7 {
+    background: url("/assets/images/other.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card7:hover {
+    background: url("/assets/images/other.jpg") right center no-repeat;
+    background-size: 600px;
+  }
+
+  /* .card2:hover h2 {
+    opacity: 1;
+  }
+  .card2:hover .fa {
+    opacity: 1;
+  } */
+  h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #fff;
+    margin: 20px;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  .fa {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+  .icons {
+    position: absolute;
+    fill: #fff;
+    color: #fff;
+    height: 130px;
+    top: 226px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+      
+  
+/* nav {
+    transform: rotate(-0.25turn);
+    left: -329px;
+   
+    background-color: cornsilk;
+    width: 98vh;
+    position: absolute;
+    top: 317px;
+}
+
+main {
+    position: absolute;
+    top: 0;
+    width: 90%;
+    right: 0;
+}
+
+.py-4{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
+} */
+
+#app{
+    
+        transform: rotate(-0.25turn);
+        height: 100vh;
+        width: 100vh;
+        overflow-x: unset !important;
+    
+}
+.main{
+
+        transform: rotate(90deg);
+    
+}
+.navbar .container{
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+.container{
+    background: #d80404;
+    /* background: url("/assets/images/bgmoving.mp4") center center no-repeat; */
+
+}
+.navbar-brand{
+    color: white !important;
+}
+#navbarDropdown{
+    color: white;
+}
+.navbar{
+    background-color: red !important;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    display: none;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+    display: none;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey; 
+    border-radius: 10px;
+    display: none;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+    display: none;
+  }
+
+  .scroll-arrow{
+    position: fixed;
+    bottom: 40px;
+    right: -700px;
+    transform: rotate(313deg);
+    /* border: 1px solid black; */
+  }
+
+  .scroll-text {
+    position: fixed;
+    bottom: 62px;
+    right: -593px;
+    transform: rotate(313deg);
+    /* border: 1px solid black; */
+    font-family: cursive;
+    font-size: xx-large;
+}
+
+/* .scrolling-text {
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.scrolling-text .scrolling-text-content {
+  color: #fff;
+  font-size: 120px;
+  white-space: nowrap;
+  transition: transform 0.5s cubic-bezier(0.23, 0.36, 0.28, 0.83);
+  line-height: 1em;
+  margin: 50px 0;
+} */

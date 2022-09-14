@@ -1,0 +1,614 @@
+/* .client-container {
+
+    height: 100vh;
+    width: 100vw;
+    max-height: 800px;
+    max-width: 1280px;
+    min-height: 600px;
+    min-width: 300% !important;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+} */
+
+/* .client-container {
+  height: 100vh;
+  width: 67vh !important;
+  max-height: 800px;
+  max-width: 100%;
+  min-height: 600px;
+  min-width: 36% !important;
+ 
+  display: flex;
+  justify-content: unset;
+  align-items: center;
+  margin-left: 146px;
+  margin: 0 0 0 0 !important;
+} */
+/* .client-container {
+  height: 100vh;
+  width: 67.1vh !important;
+  max-height: 801px;
+  max-width: 100%;
+  min-height: 554px;
+  min-width: 15% !important;
+  display: flex;
+  justify-content: unset;
+  align-items: center;
+  margin-left: 146px;
+  margin: 1px 0px 0px -1px !important;
+} */
+.client-container {
+  height: 100vh;
+  width: 67vh !important;
+  max-height: 800px;
+  max-width: 100%;
+  min-height: 554px;
+  min-width: 15% !important;
+  display: flex;
+  justify-content: unset;
+  align-items: center;
+  margin-left: 146px;
+  margin: -38px 0px 0px -1px !important;
+}
+  .client-border {
+    height: 369px;
+    width: 290px;
+    border-radius: 5px;
+    transition: border 1s;
+    position: relative;
+
+    background: black;
+    opacity: 0.5;
+  }
+  .client-border:hover {
+    border: 1px solid #fff;
+    background: transparent;
+
+    opacity: 1 !important;
+  }
+  /* .client-card {
+    border: 0px !important;
+    margin: 10px;
+    height:350px !important;
+    width: 285px;
+    background: #808080;
+    border-radius: 10px;
+    transition: background 0.8s;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 70px 63px -60px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -844px;
+    top: -31px;
+    background-color: #000 !important;
+  }
+   */
+   .client-card {
+    border: 0px !important;
+    margin: 10px;
+    height: 350px !important;
+    width: 285px;
+    background: #808080;
+    border-radius: 10px;
+    transition: background 0.8s;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 70px 63px -60px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 60px;
+    top: -31px;
+    background-color: #000 !important;
+}
+ .card:hover h2 {
+    opacity: 0;
+  }
+  .card h2 {
+    opacity: 1;
+  }
+  .card:hover .fa {
+    opacity: 0;
+  }
+.border-line
+{
+    border: 1px solid black;
+    background-color: #000;
+    position: absolute;
+    left: 483px;
+    height: 721px;
+}
+.selected{
+    position: absolute;
+    top: 84px;
+    left: 136px;
+    color: white;
+}
+.car-model
+{
+    /* position: absolute;*/
+    left: 810px;
+    width: 100%;
+    position: absolute;
+    top: 84px;
+    /* left: 136px; */
+    color: white;
+
+}
+  .card0 {
+    background: url("/assets/images/breakdown.jpg") left center no-repeat;
+    background-size: 600px;
+  }
+  .card0:hover {
+    
+    background: url("/assets/images/breakdown.jpg") center center no-repeat; 
+    background-size: 533px;
+  }
+  .card0:hover h2 {
+    opacity: 1;
+  }
+  .card0:hover .fa {
+    opacity: 0;
+  }
+  .information
+  {
+    position: absolute;
+    top: 65px;
+    left: 200px;
+    color: white;
+  }
+  /* .card1 {
+    background: url("/assets/images/battery.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card1:hover {
+    background: url("/assets/images/battery.jpg") left center no-repeat;
+    background-size: 600px;
+  } */
+  /* .card1:hover h2 {
+    opacity: 1;
+  }
+  .card1:hover .fa {
+    opacity: 1;
+  } */
+  /* .card2 {
+    background: url("/assets/images/carlock.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card2:hover {
+    background: url("/assets/images/carlock.jpg") left center no-repeat;
+    background-size: 600px;
+  }
+
+
+  .card3 {
+    background: url("/assets/images/towtruck.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card3:hover {
+    background: url("/assets/images/towtruck.jpg") right center no-repeat;
+    background-size: 600px;
+  }
+
+  .card4 {
+    background: url("/assets/images/flattyre.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card4:hover {
+    background: url("/assets/images/flattyre.jpg") right center no-repeat;
+    background-size: 600px;
+  }
+
+  .card5 {
+    background: url("/assets/images/refueling.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card5:hover {
+    background: url("/assets/images/refueling.jpg") right center no-repeat;
+    background-size: 600px;
+  }
+
+  .card6 {
+    background: url("/assets/images/carwash.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card6:hover {
+    background: url("/assets/images/carwash.jpg") left center no-repeat;
+    background-size: 600px;
+  }
+
+  .card7 {
+    background: url("/assets/images/other.jpg") center center no-repeat;
+    background-size: 533px;
+  }
+  .card7:hover {
+    background: url("/assets/images/other.jpg") right center no-repeat;
+    background-size: 600px;
+  } */
+
+  /* .card2:hover h2 {
+    opacity: 1;
+  }
+  .card2:hover .fa {
+    opacity: 1;
+  } */
+  h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #fff;
+    margin: 20px;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  h3{
+    /* position: absolute; */
+    /* top: 65px;
+    left: 136px; */
+    color: white;
+  }
+  .fa {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+  .icons {
+    position: absolute;
+    fill: #fff;
+    color: #fff;
+    height: 130px;
+    top: 210px;
+    width: 83%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+}
+      
+  
+/* nav {
+    transform: rotate(-0.25turn);
+    left: -329px;
+   
+    background-color: cornsilk;
+    width: 98vh;
+    position: absolute;
+    top: 317px;
+}
+
+main {
+    position: absolute;
+    top: 0;
+    width: 90%;
+    right: 0;
+}
+
+.py-4{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
+} */
+
+#app{
+    
+        transform: rotate(-0.25turn);
+        height: 100vh;
+        width: 100vh;
+        overflow-x: unset !important;
+    
+}
+.main{
+
+        transform: rotate(90deg);
+    
+}
+.navbar .container{
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+.container{
+    background: #d80404;
+    /* background: linear-gradient(#141e30, #e4ebf4); */
+
+    /* background: url("/assets/images/bgmoving.mp4") center center no-repeat; */
+
+}
+.navbar-brand{
+    color: white !important;
+}
+#navbarDropdown{
+    color: white;
+}
+.navbar{
+    background-color: red !important;
+    /* background: linear-gradient(#141e30, #e4ebf4); */
+
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    display: none;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+    display: none;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey; 
+    border-radius: 10px;
+    display: none;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+    display: none;
+  }
+
+  .scroll-arrow{
+    position: fixed;
+    bottom: 40px;
+    right: -700px;
+    transform: rotate(313deg);
+    /* border: 1px solid black; */
+  }
+
+  .scroll-text {
+    position: fixed;
+    bottom: 62px;
+    right: -593px;
+    transform: rotate(313deg);
+    /* border: 1px solid black; */
+    font-family: cursive;
+    font-size: xx-large;
+}
+
+html {
+    height: 100%;
+  }
+  body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #e4ebf4);
+  }
+  
+ 
+  .login-box {
+    position: absolute;
+    top: 726%;
+    left: 21%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+  }
+  
+  .login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+  .login-box a:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+  }
+  
+  .login-box a span {
+    position: absolute;
+    display: block;
+  }
+  
+  .login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+  }
+  
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+  }
+  
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,100% {
+      right: 100%;
+    }
+  }
+  
+  .login-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+  }
+  
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+
+  
+    .map {
+      position: absolute;
+      top: 181px;
+      left: 630px;
+      width: 100% px;
+       height: 100% px;
+  }
+
+  /* .input-group {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 31%;
+    top: 69px;
+    left: 867px;
+} */
+.input-group {
+  position: absolute;
+  top: 100;
+  left: 802;
+  width: 80% !important;
+}
+
+.form-outline
+ {
+  width: 376px;
+}
+.nxtbtn
+{
+    position: absolute;
+    top: 600;
+    left: 924px;
+  
+}
+.nxtbtn{
+  width: 137px;
+}
+
+.latlongs
+{
+    position: absolute;
+    top: 600;
+    left: 500;
+    width: 200px;
+}
+
+.ontway
+{
+    position: absolute;
+    top: 84px;
+    left: 812px;
+    width: 345px;
+}
+
+.backbtn
+{
+    position: absolute;
+    top: 13px;
+    left: 18;
+
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+

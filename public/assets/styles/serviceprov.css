@@ -1,0 +1,137 @@
+.card
+{
+    
+        position: absolute;
+        width: 351px;
+        top: 93px;
+        left: 1170px;
+  border-radius: 10px;
+  /* background-color: hsl(197, 85%, 54%) !important; */
+     /* background-color: linear-gradient(#141e30, #e4ebf4) !important; */
+
+
+}
+.card2
+{
+    position: absolute;
+    width: 351px;
+    top: 115px !important;
+    /* left: 1170px; */
+border-radius: 10px;
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-border-width: 1px;
+    --bs-card-border-color: var(--bs-border-color-translucent);
+    --bs-card-border-radius: 0.375rem;
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(0.375rem - 1px);
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-bg: #fff;
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius);
+}
+/* .card:hover
+{
+    opacity: 1;
+} */
+    /* .image
+    {
+        background: url("/assets/images/breakdown.jpg");
+        width:100px; 
+        margin-left: -7px; 
+        padding: 3px;
+    } */
+.incoming {
+        position: absolute;
+        top: 70px;
+        left: 1160px;
+        border: 1px solid #382222;
+        padding: 25px;
+        width: 337px;
+}
+body{
+     /* background-color: linear-gradient(#141e30, #e4ebf4) !important; */
+    
+    /* background-color: tomato !important; */
+    border-radius: 10px;
+
+}
+
+.map {
+    position: absolute;
+    top: 161px;
+    left: 400px;
+    width: 100% px;
+     height: 100% px;
+}
+.clientloc
+{
+    position: absolute;
+    top: 100px;
+    left: 650px;
+}
+
+.border-line
+{
+    border: 1px solid black;
+    background-color: #000;
+    position: absolute;
+    left: 1150px;
+    height: 660px;
+    top: 57px;
+}
+
+.border-line2
+{
+    border: 1px solid black;
+    background-color: #000;
+    position: absolute;
+    left: 354px;
+    height: 660px;
+    top: 57px;
+
+}
+
+
+.profile{
+    position: absolute;
+    top : 0px;
+    left: 0px;
+}
+.profile .card{
+    position: absolute;
+    left: 2px;
+    top: 104px;
+}
+
+.saracontent{
+    position: absolute;
+    display: block;
+    right: 0;
+    height: 100vh;
+    overflow-x: scroll;
+}
+
+.cancelbtn
+{
+        position: absolute;
+        align-content: center;
+        top: 580px;
+        left: 690px;
+}
