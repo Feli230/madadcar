@@ -174,3 +174,14 @@ body {
 .social-icons a.email i {
   color: #34a853;
 }
+
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+  position: absolute;
+  transform: rotate(0.25turn) !important;
+  left: -60px;
+  top: 85px;
+
+  /* margin: 65px -55px !important; */
+}
+

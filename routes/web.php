@@ -43,6 +43,14 @@ Route::get('/client/home', function ()
 })->name('client-home');
 
 
-Route::get('/select-service/{service}', [RequestBookingController::class, 'selectService'])->name('select-service');
+Route::get('/select-service/{service}/{class}', [RequestBookingController::class, 'selectService'])->name('select-service');
 Route::post('/selectmap', [RequestBookingController::class, 'selectMap'])->name('selectmap');
 Route::post('/requestsent', [RequestBookingController::class, 'requestSent'])->name('requestsent');
+
+Route::get('/previousrecords' , [UserController::class, 'previousRecords'])->name('previousrecords');
+
+
+Route::get('/client-previousrecords' , [UserController::class, 'clientpreviousRecords'])->name('client-previousrecords');
+Route::get('/service-provider-previousrecords' , [UserController::class, 'serviceproviderpreviousRecords'])->name('service-provider-previousrecords');
+
+Route::post('/acceptreq', [RequestBookingController::class, 'acceptReq'])->name('acceptreq');

@@ -48,7 +48,7 @@
                                     <p style="position: absolute; left:193px;"><strong>Service Charges: </strong>{{$request['price']}}</p>
                                 </div>
                                 </div>
-                                <div class="button mt-2 d-flex flex-row align-items-center center">
+                                <div style="justify-content: center;" class="button mt-2 d-flex flex-row align-items-center">
                                     <button class="btn btn-sm btn-primary w-50" >Accept</button>
                                 </div>
 

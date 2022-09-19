@@ -1,57 +1,12 @@
-/* .client-container {
-
-    height: 100vh;
-    width: 100vw;
-    max-height: 800px;
-    max-width: 1280px;
-    min-height: 600px;
-    min-width: 300% !important;
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto;
-} */
-
-/* .client-container {
-  height: 100vh;
-  width: 67vh !important;
-  max-height: 800px;
-  max-width: 100%;
-  min-height: 600px;
-  min-width: 36% !important;
- 
-  display: flex;
-  justify-content: unset;
-  align-items: center;
-  margin-left: 146px;
-  margin: 0 0 0 0 !important;
-} */
-/* .client-container {
-  height: 100vh;
-  width: 67.1vh !important;
-  max-height: 801px;
-  max-width: 100%;
-  min-height: 554px;
-  min-width: 15% !important;
-  display: flex;
-  justify-content: unset;
-  align-items: center;
-  margin-left: 146px;
-  margin: 1px 0px 0px -1px !important;
-} */
 .client-container {
-  height: 100vh;
-  width: 67vh !important;
+  height: 100%;
+  width: 67% !important;
   max-height: 800px;
   max-width: 100%;
-  min-height: 554px;
   min-width: 15% !important;
   display: flex;
   justify-content: unset;
   align-items: center;
-  margin-left: 146px;
-  margin: -38px 0px 0px -1px !important;
 }
   .client-border {
     height: 369px;
@@ -61,7 +16,7 @@
     position: relative;
 
     background: black;
-    opacity: 0.5;
+    opacity: 0.7;
   }
   .client-border:hover {
     border: 1px solid #fff;
@@ -69,26 +24,7 @@
 
     opacity: 1 !important;
   }
-  /* .client-card {
-    border: 0px !important;
-    margin: 10px;
-    height:350px !important;
-    width: 285px;
-    background: #808080;
-    border-radius: 10px;
-    transition: background 0.8s;
-    overflow: hidden;
-    background: #000;
-    box-shadow: 0 70px 63px -60px #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: -844px;
-    top: -31px;
-    background-color: #000 !important;
-  }
-   */
+  
    .client-card {
     border: 0px !important;
     margin: 10px;
@@ -164,81 +100,7 @@
     left: 200px;
     color: white;
   }
-  /* .card1 {
-    background: url("/assets/images/battery.jpg") center center no-repeat;
-    background-size: 533px;
-  }
-  .card1:hover {
-    background: url("/assets/images/battery.jpg") left center no-repeat;
-    background-size: 600px;
-  } */
-  /* .card1:hover h2 {
-    opacity: 1;
-  }
-  .card1:hover .fa {
-    opacity: 1;
-  } */
-  /* .card2 {
-    background: url("/assets/images/carlock.jpg") center center no-repeat;
-    background-size: 533px;
-  }
-  .card2:hover {
-    background: url("/assets/images/carlock.jpg") left center no-repeat;
-    background-size: 600px;
-  }
-
-
-  .card3 {
-    background: url("/assets/images/towtruck.jpg") center center no-repeat;
-    background-size: 533px;
-  }
-  .card3:hover {
-    background: url("/assets/images/towtruck.jpg") right center no-repeat;
-    background-size: 600px;
-  }
-
-  .card4 {
-    background: url("/assets/images/flattyre.jpg") center center no-repeat;
-    background-size: 533px;
-  }
-  .card4:hover {
-    background: url("/assets/images/flattyre.jpg") right center no-repeat;
-    background-size: 600px;
-  }
-
-  .card5 {
-    background: url("/assets/images/refueling.jpg") center center no-repeat;
-    background-size: 533px;
-  }
-  .card5:hover {
-    background: url("/assets/images/refueling.jpg") right center no-repeat;
-    background-size: 600px;
-  }
-
-  .card6 {
-    background: url("/assets/images/carwash.jpg") center center no-repeat;
-    background-size: 533px;
-  }
-  .card6:hover {
-    background: url("/assets/images/carwash.jpg") left center no-repeat;
-    background-size: 600px;
-  }
-
-  .card7 {
-    background: url("/assets/images/other.jpg") center center no-repeat;
-    background-size: 533px;
-  }
-  .card7:hover {
-    background: url("/assets/images/other.jpg") right center no-repeat;
-    background-size: 600px;
-  } */
-
-  /* .card2:hover h2 {
-    opacity: 1;
-  }
-  .card2:hover .fa {
-    opacity: 1;
-  } */
+  
   h2 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #fff;
@@ -247,9 +109,7 @@
     transition: opacity 1s;
   }
   h3{
-    /* position: absolute; */
-    /* top: 65px;
-    left: 136px; */
+    
     color: white;
   }
   .fa {
@@ -269,30 +129,7 @@
     justify-content: center;
     font-size: large;
 }
-      
-  
-/* nav {
-    transform: rotate(-0.25turn);
-    left: -329px;
-   
-    background-color: cornsilk;
-    width: 98vh;
-    position: absolute;
-    top: 317px;
-}
 
-main {
-    position: absolute;
-    top: 0;
-    width: 90%;
-    right: 0;
-}
-
-.py-4{
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-
-} */
 
 #app{
     
@@ -302,10 +139,11 @@ main {
         overflow-x: unset !important;
     
 }
-.main{
-
-        transform: rotate(90deg);
-    
+.main {
+  transform: rotate(90deg);
+  position: absolute;
+  height: 100vh;
+  width: 100%;
 }
 .navbar .container{
     margin-left: 10px !important;
@@ -612,3 +450,101 @@ html {
 }
 
 
+.container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+  position: absolute;
+  transform: rotate(0.25turn) !important;
+  left: -60px;
+  top: 85px;
+
+  /* margin: 65px -55px !important; */
+}
+
+.card0 {
+  background: url("/assets/images/breakdown.jpg") left center no-repeat;
+  background-size: 600px;
+}
+.card0:hover {
+  
+  background: url("/assets/images/breakdown.jpg") center center no-repeat; 
+  background-size: 533px;
+}
+/* .card0:hover h2 {
+  opacity: 1;
+}
+.card0:hover .fa {
+  opacity: 1;
+} */
+.card1 {
+  background: url("/assets/images/battery.jpg") center center no-repeat;
+  background-size: 533px;
+}
+.card1:hover {
+  background: url("/assets/images/battery.jpg") left center no-repeat;
+  background-size: 600px;
+}
+/* .card1:hover h2 {
+  opacity: 1;
+}
+.card1:hover .fa {
+  opacity: 1;
+} */
+.card2 {
+  background: url("/assets/images/carlock.jpg") center center no-repeat;
+  background-size: 533px;
+}
+.card2:hover {
+  background: url("/assets/images/carlock.jpg") left center no-repeat;
+  background-size: 600px;
+}
+
+
+.card3 {
+  background: url("/assets/images/towtruck.jpg") center center no-repeat;
+  background-size: 533px;
+}
+.card3:hover {
+  background: url("/assets/images/towtruck.jpg") right center no-repeat;
+  background-size: 600px;
+}
+
+.card4 {
+  background: url("/assets/images/flattyre.jpg") center center no-repeat;
+  background-size: 533px;
+}
+.card4:hover {
+  background: url("/assets/images/flattyre.jpg") right center no-repeat;
+  background-size: 600px;
+}
+
+.card5 {
+  background: url("/assets/images/refueling.jpg") center center no-repeat;
+  background-size: 533px;
+}
+.card5:hover {
+  background: url("/assets/images/refueling.jpg") right center no-repeat;
+  background-size: 600px;
+}
+
+.card6 {
+  background: url("/assets/images/carwash.jpg") center center no-repeat;
+  background-size: 533px;
+}
+.card6:hover {
+  background: url("/assets/images/carwash.jpg") left center no-repeat;
+  background-size: 600px;
+}
+
+.card7 {
+  background: url("/assets/images/other.jpg") center center no-repeat;
+  background-size: 533px;
+}
+.card7:hover {
+  background: url("/assets/images/other.jpg") right center no-repeat;
+  background-size: 600px;
+}

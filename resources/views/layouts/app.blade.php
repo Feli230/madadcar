@@ -60,11 +60,15 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{route('previousrecords')}}" >
+                                        {{ __('Previous Record') }}
+                                    </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
+                               
                             </li>
                         @endguest
                     </ul>

@@ -21,7 +21,7 @@ class ServiceController extends Controller
     {
         $count = 0;
 
-        $query = RequestBooking::select('*')->where('sp_id', $id)->orWhere('status', 'pending')->get();
+        $query = RequestBooking::select('*')->where('sp_id', $id)->orWhere('status', 'pending')->orderBy('req_id', 'desc')->get();
    
         $count = 0;
         foreach($query as $q){

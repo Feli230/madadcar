@@ -15,6 +15,8 @@
             <form method="POST" action="{{route('selectmap')}}">
               @csrf
               <input type="text" name="service" value="{{$service}}" hidden>
+              <input type="text" name="class" value="{{$class}}" hidden>
+
               <div class="user-box">
                 <input type="text" name="model" required>
                 <label>Car Model</label>
@@ -39,15 +41,48 @@
         </div>
     </div>
     <div class="container client-container">
-        <div class="card client-card card0">
+        <div class="card client-card {{$class}}">
         <div class="border client-border">
-            <h2>{{$service}}</h2>
+          @switch($service)
+
+
+          @case('breakdown')
+          <h2>Break Down</h2>
+
+          @break
+
+          
+          @case('battery')
+          <h2>Battery</h2>
+          @break
+          
+          @case('carlock')
+          <h2>Car Lock</h2>
+          @break
+          
+          @case('refueling')
+          <h2>Refueling</h2>
+          @break
+          
+          @case('towtruck')
+          <h2>Tow Truck</h2>
+          @break
+          
+          @case('flattyre')
+          <h2>Flat tyre</h2>
+          @break
+          
+          @case('carwash')
+          <h2>Car Wash</h2>
+          @break
+
+          @case('others')
+          <h2>Others</h2>
+          @break
+
+        @endswitch
             <div class="icons">
-            {{--  <i class="fa fa-codepen">Car Brand</i>
-            <i class="fa fa-instagram">Car Modal</i>
-            <i class="fa fa-dribbble">Car Year</i>
-            <i class="fa fa-twitter">farhan</i>
-            <i class="fa fa-facebook">farhan</i>  --}}
+            
             </div>
         </div>
         </div>
