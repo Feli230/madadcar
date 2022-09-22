@@ -1,9 +1,8 @@
 @extends('layouts.app')
 <link href="{{ asset('assets/styles/serviceprov.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> 
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-@section('content')
+
 
 @section('content-profile')
 @include('layouts/profile')

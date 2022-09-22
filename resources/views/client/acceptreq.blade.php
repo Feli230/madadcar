@@ -10,14 +10,14 @@
     </div>
   
           <div class="ontway">
-            <h3>{{}} Has accepted your request</h3>
+            <h3> Has accepted your request</h3>
           </div>
 
-          <div class="map">
+          {{--  <div class="map">
             <iframe id="map" height="350 px" width="700px" src="https://maps.google.com/maps?q={{$cardetails['lat']}},{{$cardetails['long']}}&hl=es&z=14&amp;output=embed">
               <a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a>
           </iframe>
-          </div>
+          </div>  --}}
 
           
 
@@ -83,7 +83,7 @@
             <i class="fa fa-dribbble"> Year: {{$cardetails['year']}}</i>
             <i class="fa fa-dribbble">Latitude: {{$cardetails['lat']}}</i>
             <i class="fa fa-dribbble">Longitude: {{$cardetails['long']}}</i>
-
+              <p> Price:700</p>
 
             
             </div>

@@ -60,9 +60,22 @@
                             <label for="cnic" class="col-md-4 col-form-label text-md-end">{{ __('CNIC') }}</label>
 
                             <div class="col-md-6">
-                                <input id="cnic" type="number"  class="form-control @error('cnic') is-invalid @enderror" name="cnic" value="{{ old('cnic') }}" required autocomplete="cnic">
+                                <input id="cnic" type="text"   data-inputmask="'mask': '99999-9999999-9'"  placeholder="XXXXX-XXXXXXX-X"  pattern="^[0-9]{5}-[0-9]{7}-[0-9]$"  class="form-control @error('cnic') is-invalid @enderror" name="cnic" value="{{ old('cnic') }}" required autocomplete="cnic">
 
                                 @error('cnic')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="tel"  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"    data-inputmask="'mask': '9999-9999999'"  placeholder="XXXX-XXXXXXX"  class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+
+                                @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

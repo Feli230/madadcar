@@ -37,8 +37,11 @@ class RegisterController extends Controller
        if($role == "client"){
         $this->redirectTo = RouteServiceProvider::CLIENTHOME;
        }
-       else{
-        $this->redirectTo = RouteServiceProvider::SPHOME;
+       elseif($role == "service_provider"){
+        $redirectTo = RouteServiceProvider::SPHOME;
+       }
+       elseif($role == "admin"){
+        $redirectTo = RouteServiceProvider::ADMINHOME;
        }
         
     }
@@ -59,6 +62,10 @@ class RegisterController extends Controller
         else if($user->role == 'service_provider') {
             $this->setRedirect('service_provider');
             return view('service-provider/home');
+        }
+        else if($user->role == 'admin') {
+            $this->setRedirect('admin');
+            return view('admin/home');
         }
     }
 

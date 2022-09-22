@@ -123,45 +123,7 @@
           <div class="border-line">
               <p style="border: 1px"></p>
           </div>
-          {{--  <div id="map"></div>  --}}
-          {{--  <div class="pac-card" id="pac-card">
-            <div>
-              <div id="title">Search Location</div>
-              <div id="type-selector" class="pac-controls">
-                <input
-                  type="radio"
-                  name="type"
-                  id="changetype-all"
-                  checked="checked"
-                  hidden
-                />
-              </div>
-              <!-- <br /> -->
-              <div id="strict-bounds-selector" class="pac-controls">
-                <input
-                  type="checkbox"
-                  id="use-location-bias"
-                  value=""
-                  checked
-                  hidden
-                />
-                <!-- <label for="use-location-bias">Bias to map viewport</label> -->
-      
-                <input type="checkbox" id="use-strict-bounds" value="" hidden />
-                <!-- <label for="use-strict-bounds">Strict bounds</label> -->
-              </div>
-            </div>
-            <div id="pac-container">
-              <input id="pac-input" type="text" placeholder="Enter a location" />
-            </div>
-          </div>  --}}
-          {{--  <div id="map"></div>  --}}
-          {{--  <input
-      id="pac-input"
-      class="controls"
-      type="text"
-      placeholder="Search Box"
-    />  --}}
+          
           <div class="map" id="map" style="height: 400px; width: 700px;">
           </div>
           {{--  <div id="infowindow-content">
@@ -170,7 +132,7 @@
           </div>  --}}
           
 
-            <div class="input-group">
+            {{--  <div class="input-group">
             <div class="form-outline">
               <input type="search" value="Search" id="search" class="form-control" />
             </div>
@@ -178,35 +140,9 @@
               <i class="fa-regular fa-magnifying-glass-location"></i>  
             </button>
           </div> 
+            --}}
           
-          
-        <form method="POST" action="{{route('requestsent')}}">
-          @csrf
-{{--  {{dd($cardetails);}}  --}}
-
-          <input type="text" name="service" value="{{$cardetails['service']}}" hidden>
-          <input type="text" name="class" value="{{$cardetails['class']}}" hidden>
-          <input type="text" name="model" value="{{$cardetails['model']}}" hidden>
-          <input type="text" name="carbrand" value="{{$cardetails['carbrand']}}" hidden>
-          <input type="text" name="year" value="{{$cardetails['year']}}" hidden>
-
-          <div class="latlongs">
-            <div class="maplatlong">
-              <span class="input-group-text">Latitude and Longitude </span>
-            </div>
-            <div class="textfield d-flex">
-              <input type="text" name="lat" id="lat" class="form-control">
-              <input type="text" name="long" id="long" class="form-control">
-            </div>
-          </div>
-         
-          <div class="nxtbtn">
-            
-            <button type="submit"  class="btn btn-danger">
-              Confirm Location
-            </button>
-          </div>
-        </form>
+      
           
           
 
@@ -256,6 +192,8 @@
                     <i class="fa fa-codepen">Name: {{$cardetails['model']}}</i>
                     <i class="fa fa-instagram">Brand: {{$cardetails['carbrand']}}</i>
                     <i class="fa fa-dribbble">Year: {{$cardetails['year']}}</i>
+                    <p>Price: 700 </p>
+
                   </div>
                   {{--  @if ($errors->any())
                       <div class="alert alert-danger">
@@ -268,6 +206,33 @@
                   @endif  --}}
               </div>
            </div>
+            <form method="POST" action="{{route('requestsent')}}">
+              @csrf
+    {{--  {{dd($cardetails);}}  --}}
+    
+              <input type="text" name="service" value="{{$cardetails['service']}}" hidden>
+              <input type="text" name="class" value="{{$cardetails['class']}}" hidden>
+              <input type="text" name="model" value="{{$cardetails['model']}}" hidden>
+              <input type="text" name="carbrand" value="{{$cardetails['carbrand']}}" hidden>
+              <input type="text" name="year" value="{{$cardetails['year']}}" hidden>
+    
+              <div class="latlongs">
+                <div class="maplatlong">
+                  <span class="input-group-text">Latitude and Longitude </span>
+                </div>
+                <div class="textfield d-flex">
+                  <input type="text" name="lat" id="lat" class="form-control">
+                  <input type="text" name="long" id="long" class="form-control">
+                </div>
+              </div>
+            
+              <div class="nxtbtn">
+                
+                <button type="submit"  class="btn btn-danger">
+                  Confirm Location
+                </button>
+              </div>
+            </form>
          </div>
        
          {{--  <!-- Add the this google map apis to webpage -->  --}}

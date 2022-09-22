@@ -65,12 +65,16 @@ class RequestBookingController extends Controller
 
     public function selectService($service, $class)
     {
+         $price = DB::table('Services')->select('service_price')->where('service_type',$service)->get();
+        $s_price = $price[0]->service_price;
+        // dd($s_price);
 
-        return view('client/car-model', compact('service','class'));
+        return view('client/car-model', compact('service','class','s_price'));
     }
 
     public function selectMap(Request $request)
     {
+
 
         // dd($request->input());
         $validated = $request->validate([
@@ -78,6 +82,8 @@ class RequestBookingController extends Controller
             'carbrand' => 'required',
             'year' => 'required',
         ]);
+
+       
         $cardetails = $request->input();
         // $this->getCurrentLocation();
         return view('client/select-map', compact('cardetails'));
@@ -131,6 +137,10 @@ class RequestBookingController extends Controller
         {
 
         }
+        // print Auth::id();
+        // return view('/home');
+        
     }
+
 
 }

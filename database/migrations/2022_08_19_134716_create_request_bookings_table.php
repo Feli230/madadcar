@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('request_bookings', function (Blueprint $table) {
-            $table->id();
+            $table->id('req_id');
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('users');
             $table->unsignedBigInteger('sp_id')->nullable();

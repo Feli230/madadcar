@@ -10,7 +10,7 @@
         <p style="border: 1px"></p>
     </div>
     <div class="car-model">
-        <h3>Enter Car Model</h3>
+        <h3>Enter Car Model</h3>  
         <div class="login-box">
             <form method="POST" action="{{route('selectmap')}}">
               @csrf
@@ -40,6 +40,9 @@
             </form>
         </div>
     </div>
+    <div class="sprice">
+      <h5>Price: {{$s_price}}</h5>
+    </div>
     <div class="container client-container">
         <div class="card client-card {{$class}}">
         <div class="border client-border">
@@ -48,7 +51,6 @@
 
           @case('breakdown')
           <h2>Break Down</h2>
-
           @break
 
           
@@ -82,6 +84,8 @@
 
         @endswitch
             <div class="icons">
+              
+          
             
             </div>
         </div>

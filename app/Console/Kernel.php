@@ -31,8 +31,12 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('request:cron')->everyMinute();
         // print_r("umer")->everyMinute();
-        $requestBooking = new RequestBookingController;
-        $requestBooking->acceptReq()->everyMinute();
+        
+
+        $schedule->call(function () {
+            $requestBooking = new RequestBookingController;
+            $requestBooking->acceptReq();
+        })->everyMinute();
 
     }
 

@@ -1,0 +1,35 @@
+body {
+    margin: 20px;
+  }
+  
+  .red {
+   border-top: 8px solid #ff5050 !important;
+  }
+  
+  .green{
+     border-top: 8px solid #79c779 !important;
+  
+  }
+  
+  .black {
+     border-top: 8px solid #7e92e3 !important;
+  
+  }
+  
+  .yellow {
+     border-top: 8px solid #ecec20 !important;
+  }
+  
+  .gray {
+       border-top: 8px solid #d3d3d3 !important;
+  }
+  
+  .clickable-card {
+    padding: 0 !important;
+    
+  }
+  
+
+  div.dataTables_wrapper div.dataTables_length select {
+   width: -webkit-fill-available !important;
+}

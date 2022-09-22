@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\RequestBooking;
 use App\Models\Service;
 use App\Models\User;
+use DataTables;
 
 
 class UserController extends Controller
@@ -19,8 +20,11 @@ class UserController extends Controller
             if($user->role == 'client'){
                 return view('client/home');
             }
-            else{
+            elseif($user->role == 'service_provider'){
                 return  redirect()->route('service-provider-home');   
+            }
+            elseif($user->role == 'admin'){
+                return  view('admin/home');   
             }
         }
         return view('auth/role_selection');  
@@ -34,8 +38,12 @@ class UserController extends Controller
             if($user->role == 'client'){
                 return  redirect()->route('client-previousrecords');
             }
-            else{
+            elseif($user->role == 'service_provider'){
                 return  redirect()->route('service-provider-previousrecords');   
+            }
+            else
+            {
+                return view('admin/home'); 
             }
         }
 
@@ -116,5 +124,68 @@ class UserController extends Controller
         return view('/service-provider/previousrecords', compact('myrequest'));
 
     }
+
+    //records table for client
+    
+    public function adminClient(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $data = User::select('*')->where('role', 'client');
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+                           $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true); 
+        }
+        return view('/admin/adminclients');
+        
+    }
+
+    //records table for sprovider
+    public function adminService(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = User::select('*')->where('role', 'service_provider');
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+                           $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true); 
+        }
+        return view('/admin/adminserviceproviders');
+        
+    }
+//all record admin
+   public function allRecords(Request $request)
+   {
+
+    if ($request->ajax()) {
+        $data = RequestBooking::join('services', 'services.id', '=', 'request_bookings.service_id')
+        ->join('users as client', 'client.id', '=', 'request_bookings.client_id')
+        ->leftjoin('users as sp', 'sp.id', '=', 'request_bookings.sp_id')
+        ->select('request_bookings.*', 'client.name as client_name', 'sp.name as sp_name', 'services.service_type as service', 'services.service_price as price')
+        ->get();
+        return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                       $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+                        return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true); 
+    }
+
+    return view('/admin/allrecords');
+    
+   }
+
+  
 
 }

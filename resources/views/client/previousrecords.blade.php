@@ -2,6 +2,10 @@
 
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<link href="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js">
+
+
 @section('content')
 
 
@@ -14,7 +18,7 @@
         </div>   
 
         <div class="table-responsive">
-            <table class="table text-nowrap text-center">
+            <table id="madadcar" class="table text-nowrap text-center">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -31,6 +35,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                        
                     @foreach ($myrequest as $key )
                         
                     <tr>
@@ -59,14 +64,22 @@
                         {{--  <td>{{$key['status']}}</td>  --}}
                         <td>{{$key['date']}}</td>
                         <td>{{$key['price']}}</td>
-
+                      
                     </tr>
                     @endforeach
-
+                    
                 </tbody>
             </table>
+           
         </div>
+        
    </div>
 
 </div>
+<script>
+    $(document).ready( function () {
+        $('#madadcar').DataTable();
+    } );
+</script>
+
 @endsection

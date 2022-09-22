@@ -37,8 +37,11 @@ class LoginController extends Controller
        if($role == "client"){
         $redirectTo = RouteServiceProvider::CLIENTHOME;
        }
-       else{
+       elseif($role == "service_provider"){
         $redirectTo = RouteServiceProvider::SPHOME;
+       }
+       elseif($role == "admin"){
+        $redirectTo = RouteServiceProvider::ADMINHOME;
        }
         
     }
@@ -68,6 +71,10 @@ class LoginController extends Controller
         else if($user->role == 'service_provider') {
             $this->setRedirect('service-provider');
             return view('service-provider/home');
+        }
+        else if($user->role == 'admin') {
+            $this->setRedirect('admin');
+            return view('admin/home');
         }
         
     }

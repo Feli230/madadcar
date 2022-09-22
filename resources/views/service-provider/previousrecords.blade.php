@@ -28,6 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
                     @foreach ($myrequest as $key )
                     <tr>
                         <td>{{$key['clientName']}}</td>
@@ -38,10 +39,10 @@
                         <td>{{$key['comment']?$key['comment']:"null"}}</td>
                         <td>{{$key['date']}}</td>
                         <td>{{$key['price']}}</td>
-
+                       
                     </tr>
                     @endforeach
-
+                   
                 </tbody>
             </table>
         </div>
