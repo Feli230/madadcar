@@ -188,6 +188,12 @@
         </div>
         <!-- /User Card -->
     </div>
+
+   <div class="walletbtn">
+    <a href="{{route('walletpay')}}">
+        <button type="button" class="btn btn-warning">Wallet</button>
+    </a>
+   </div>
         
 
     <script>

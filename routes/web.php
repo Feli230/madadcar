@@ -63,3 +63,15 @@ Route::get('/adminserviceproviders' , [UserController::class, 'adminService'])->
 Route::get('/allrecords' , [UserController::class, 'allRecords'])->name('allrecords');
 Route::get('/testings' , [UserController::class, 'Testings'])->name('testings');
 
+//service provider wallet
+Route::get('/walletpay' , [RequestBookingController::class, 'walletPay'])->name('walletpay');
+
+//service dashboard
+Route::get('/dashboard' , [UserController::class, 'serviceDashboard'])->name('dashboard');
+
+
+//upload pic
+Route::get('image-upload', [ UserController::class, 'imageUpload' ])->name('image.upload');
+Route::post('image-upload', [ UserController::class, 'imageUploadPost' ])->name('image.upload.post');
+
+

@@ -135,3 +135,35 @@ body{
         top: 580px;
         left: 690px;
 }
+
+.walletbtn {
+    position: absolute;
+    top: 248px;
+    left: 126px;
+}
+
+.card-body
+{
+    height: 184px;
+}
+
+.walletcard
+{
+    position: absolute;
+    top : 0px;
+    left: 0px;
+}
+
+.cmmsn
+{
+    position: absolute;
+    top: 85px;
+    left: 17px;
+}
+
+.totlamt
+{
+    position: relative;
+    top: 2px;
+    left: -89px;
+}

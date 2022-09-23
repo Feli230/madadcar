@@ -142,5 +142,12 @@ class RequestBookingController extends Controller
         
     }
 
+    //wallet
+    public function walletPay()
+    {
+        return view('service-provider/walletpay');
+        
+    }
+
 
 }
