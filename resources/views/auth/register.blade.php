@@ -73,7 +73,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="tel"  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"    data-inputmask="'mask': '9999-9999999'"  placeholder="XXXX-XXXXXXX"  class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+                                <input id="phone" type="tel"  pattern="[0-9]{4}-[0-9]{7}"    data-inputmask="'mask': '9999-9999999'"  placeholder="XXXX-XXXXXXX"  class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">

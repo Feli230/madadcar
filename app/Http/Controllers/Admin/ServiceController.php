@@ -21,8 +21,8 @@ class ServiceController extends Controller
     {
         $count = 0;
 
-        $query = RequestBooking::select('*')->where('sp_id', $id)->orWhere('status', 'pending')->orderBy('req_id', 'desc')->get();
-   
+        $query = RequestBooking::select('*')->where('status', 'pending')->orderBy('req_id', 'desc')->get();
+        $requests = null;
         $count = 0;
         foreach($query as $q){
             $service = Service::select('service_type','service_price')->where('id', $q->service_id)->get() ;
@@ -53,8 +53,17 @@ class ServiceController extends Controller
 
     public function updateRequest($req_id, $sp_id )
     {
-        $query = RequestBooking::select('*')->where('req_id', $req_id)->update(['status' => 'accepted','sp_id' => $sp_id]);
+        $query = RequestBooking::select('status', 'sp_id')->where('req_id', $req_id)->first();
+        if($query->status == 'pending'){
+            $query = RequestBooking::select('*')->where('req_id', $req_id)->update(['status' => 'accepted','sp_id' => $sp_id]);
+            return true;
         }
+        elseif($query->sp_id == $sp_id)
+        {
+            return true;
+        }
+        return false;
+    }
    
     public function index()
     {
@@ -66,18 +75,33 @@ class ServiceController extends Controller
         // dd($requestBookings);
         return view('service-provider.home', compact('requestBookings', 'username'));
     }
+    
 
     public function acceptService($id, Request $request)
     {
         $user = $this->getUSerInfo(Auth::id());
-       $username = $user->name;
+        $username = $user->name;
 
-     $acceptedService =    $this->getRequest($id);
+        $acceptedService =  $this->getRequest($id);
 
-     $this->updateRequest($id,Auth::id() );
-     
+        $status = $this->updateRequest($id,Auth::id() );
 
+        if($status){
+            return redirect()->route('getacceptservice', ['acceptedService' => $acceptedService, 'username' => $username ]);
+        }
+        else{
+            return redirect()->back()->withErrors("request already accepted")->withInput();
+        }
+        
+    }
+
+    public function getAcceptService(Request $request)
+    {
+        // dd($request->input());
+        $username = $request->username;
+        $acceptedService = $request->acceptedService;
      return view('service-provider.home', compact('acceptedService', 'username'));
+        
     }
     
 }

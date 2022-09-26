@@ -13,6 +13,8 @@
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <link href="{{ asset('assets/styles/style-admin.css') }}" rel="stylesheet">
 
+
+
 @section('content')
 
 
@@ -69,8 +71,20 @@
 
           ]
       });
-      
-      
     });
   </script>
+ 
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $.ajax({
+            type:'GET',
+            url:'/getTotalPrice',
+            success:function(data){
+                console.log(data);
+            }
+        });
+    });
+</script>
+
 @endsection

@@ -217,12 +217,10 @@
               <input type="text" name="year" value="{{$cardetails['year']}}" hidden>
     
               <div class="latlongs">
-                <div class="maplatlong">
-                  <span class="input-group-text">Latitude and Longitude </span>
-                </div>
+               
                 <div class="textfield d-flex">
-                  <input type="text" name="lat" id="lat" class="form-control">
-                  <input type="text" name="long" id="long" class="form-control">
+                  <input type="text" name="lat" id="lat" class="form-control" hidden>
+                  <input type="text" name="long" id="long" class="form-control" hidden>
                 </div>
               </div>
             

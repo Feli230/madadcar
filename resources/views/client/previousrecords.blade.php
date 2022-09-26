@@ -35,7 +35,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                        
+                       
+                  
                     @foreach ($myrequest as $key )
                         
                     <tr>
@@ -66,8 +67,11 @@
                         <td>{{$key['price']}}</td>
                       
                     </tr>
-                    @endforeach
+
                     
+
+                    @endforeach
+                   
                 </tbody>
             </table>
            
@@ -83,3 +87,12 @@
 </script>
 
 @endsection
+
+{{--  @php
+                    $total = $total + $key['price'];
+                    @endphp  --}}
+                    {{--  <tr>
+                    <td colspan="8">Total</td>
+                    <td>{{$total}}</td>
+
+                   </tr>  --}}

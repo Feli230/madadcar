@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\RequestBookingController;
 |
 */
 
-Route::get('/', [UserController::class, 'index']);
+Route::get('/', [UserController::class, 'index'])->name('user.index');
 
 
 Auth::routes();
@@ -32,6 +32,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //route for service provider
 Route::get('/servide_provider/home',  [ServiceController::class, 'index'])->name('service-provider-home');
 Route::post('/servide_provider/accept_service/{id?}',  [ServiceController::class, 'acceptService'])->name('service-provider-accept-service');
+Route::get('/getacceptservice',  [ServiceController::class, 'getAcceptService'])->name('getacceptservice');
+
 
 
 
@@ -48,6 +50,7 @@ Route::get('/select-service/{service}/{class}', [RequestBookingController::class
 
 Route::post('/selectmap', [RequestBookingController::class, 'selectMap'])->name('selectmap');
 Route::post('/requestsent', [RequestBookingController::class, 'requestSent'])->name('requestsent');
+Route::get('/waiting', [RequestBookingController::class, 'waiting'])->name('waiting');
 
 
 //previous records
@@ -62,6 +65,7 @@ Route::get('/adminclients' , [UserController::class, 'adminClient'])->name('admi
 Route::get('/adminserviceproviders' , [UserController::class, 'adminService'])->name('adminserviceproviders');
 Route::get('/allrecords' , [UserController::class, 'allRecords'])->name('allrecords');
 Route::get('/testings' , [UserController::class, 'Testings'])->name('testings');
+Route::get('/getTotalPrice', [UserController::class, 'getTotalPrice'])->name('getTotalPrice');
 
 //service provider wallet
 Route::get('/walletpay' , [RequestBookingController::class, 'walletPay'])->name('walletpay');
@@ -73,5 +77,15 @@ Route::get('/dashboard' , [UserController::class, 'serviceDashboard'])->name('da
 //upload pic
 Route::get('image-upload', [ UserController::class, 'imageUpload' ])->name('image.upload');
 Route::post('image-upload', [ UserController::class, 'imageUploadPost' ])->name('image.upload.post');
+
+//ajax post update for request status
+Route::post('/getupdate', [RequestBookingController::class, 'getUpdate'])->name('getupdate');
+
+//ajax get routes for service provider change status
+Route::get('/cancelRequest', [RequestBookingController::class, 'cancelRequest'])->name('cancelRequest');
+Route::get('/workRequest', [RequestBookingController::class, 'workRequest'])->name('workRequest');
+Route::get('/completeRequest', [RequestBookingController::class, 'completeRequest'])->name('completeRequest');
+//after complte request from sp
+Route::get('/request-completed', [RequestBookingController::class, 'requestComplete'])->name('requestComplete');
 
 

@@ -64,18 +64,7 @@ class LoginController extends Controller
     public function authenticated(Request $request, $user)
     {
         
-        if ( $user->role == 'client') {
-            $this->setRedirect('client');
-            return view('client/home');
-        }
-        else if($user->role == 'service_provider') {
-            $this->setRedirect('service-provider');
-            return view('service-provider/home');
-        }
-        else if($user->role == 'admin') {
-            $this->setRedirect('admin');
-            return view('admin/home');
-        }
+        return redirect()->route('user.index');
         
     }
 

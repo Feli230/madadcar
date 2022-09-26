@@ -186,6 +186,14 @@ class UserController extends Controller
     
    }
 
+   public function getTotalPrice()
+   {
+    $data = RequestBooking::join('services', 'services.id', '=', 'request_bookings.service_id')
+        ->select('services.service_price as price')
+        ->get();
+    return response()->json($data);
+   }
+
   //upload pic
   public function imageUpload()
 

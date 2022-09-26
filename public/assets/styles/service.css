@@ -3,3 +3,42 @@
     padding-top: 20px;
     padding-bottom: 10px;
 }
+
+.uppercont
+{
+        position: relative;
+        left: -132px;
+}
+
+.middlecont
+{
+        position: absolute;
+        top: 80px;
+        left: 16px;
+}
+
+.pcont1
+{
+        position: relative;
+        top: 4px;
+        left: 257px;
+}
+
+.pcont2
+{
+        position: relative;
+        top: 5px;
+        left: 273px;
+}
+
+.pcont3
+{
+        position: absolute;
+        left: 404px;
+}
+
+.puracard
+{
+        width: 66.6% !important;
+}
+

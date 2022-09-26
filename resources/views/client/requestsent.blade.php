@@ -1,6 +1,6 @@
 @extends('layouts.app')
   <link href="{{ asset('assets/styles/brkdwn.css') }}" rel="stylesheet">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> 
+  {{--  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">   --}}
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
     <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
@@ -13,51 +13,7 @@
     <div class="border-line">
         <p style="border: 1px"></p>
     </div>
-    {{--  <div class="car-model">
-        <h3>Enter Car Model</h3>
-        <div class="login-box">
-            <form>
-              <div class="user-box">
-                <input type="text" name="Model" required>
-                <label>Car Model</label>
-              </div>
-              <div class="user-box">
-                <input type="text" name="carbrand" required>
-                <label>Car Brand</label>
-              </div>
-              <div class="user-box">
-                <input type="number" min="1900" max="2099" step="1" value="2016">
-                <label>Year</label>
-
-              </div>
-              <a href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Next
-              </a>
-            </form>
-        </div>
-    </div>  --}}
-          {{--  <div class="map">
-            <iframe height="350 px" width="700px" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-            <a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a>
-            </iframe>
-          </div>  --}}
-          {{--  <div class="input-group">
-            <div class="form-outline">
-              <input type="search" value="Search" id="form1" class="form-control" />
-              
-            </div>
-            <button type="button" class="btn btn-primary">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>  --}}
-          
-
-         
-
+    
       <div class="container client-container">
           <div class="card client-card {{$cardetails['class']}}">
             <div class="border client-border">
@@ -127,19 +83,16 @@
           </iframe>
         </div>  
         <fieldset>
-          <input type="button" name="next" class="next action-button" value="Next"/>
+          <input type="button" name="next" class="next action-button" id="firstNext" value="Next" hidden/>
         </fieldset>
         <fieldset>
-          <input type="button" name="next" class="next action-button" value="Next"/>
-          <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+          <input type="button" name="next" class="next action-button" id="secondNext"  value="Next" hidden/>
+          <input type="button" name="previous" class="previous action-button-previous"  id="firstPrev"   value="Previous" hidden/>
         </fieldset>
         <fieldset>
-          <input type="button" name="next" class="next action-button" value="Submit"/>
-          <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-        </fieldset>
-        <fieldset>
-         
-      </fieldset>        
+          <input type="button" name="next" class="next action-button"  id="thirdNext"   value="Submit" hidden/>
+          <input type="button" name="previous" class="previous action-button-previous"  id="secondPrev"  value="Previous" hidden/>
+        </fieldset>   
         <div class="cancelbtn">
           <a href="#">
           <button type="button" class="btn btn-danger">Cancel Request</button>
@@ -147,6 +100,15 @@
         </div>
 
       </form>
+{{--  {{dd($booking, $cardetails)}}  --}}
+      <input type="text" name="bookingid" id="bookingid" value="{{$booking->req_id}}" hidden />
+    <input type="text" name="service" id="service" value="{{$cardetails['service']}}" hidden/>
+    <input type="text" name="classes" id="classes" value="{{$cardetails['class']}}" hidden/>
+    <input type="text" name="model" id="model" value="{{$cardetails['model']}}"hidden />
+    <input type="text" name="carbrand" id="carbrand" value="{{$cardetails['carbrand']}}"hidden />
+    <input type="text" name="year" id="year" value="{{$cardetails['year']}}"hidden />
+    <input type="text" name="lat" id="lat" value="{{$cardetails['lat']}}" hidden/>
+    <input type="text" name="long" id="long" value="{{$cardetails['long']}}" hidden/>
 
     </div>
     
@@ -158,7 +120,6 @@
   var current = 1;
   var steps = $("fieldset").length;
   
-  setProgressBar(current);
   
   $(".next").click(function(){
       
@@ -184,7 +145,6 @@
           }, 
           duration: 500
       });
-      setProgressBar(++current);
   });
   
   $(".previous").click(function(){
@@ -212,21 +172,80 @@
           }, 
           duration: 500
       });
-      setProgressBar(--current);
   });
   
-  function setProgressBar(curStep){
-      var percent = parseFloat(100 / steps) * curStep;
-      percent = percent.toFixed();
-      $(".progress-bar")
-        .css("width",percent+"%")   
-  }
+  
   
   $(".submit").click(function(){
       return false;
   })
       
   });
+  </script>
+
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+  </script>
+  
+  <script>
+    function movetonext(params) {
+      
+    }
+  
+  
+    function movetoprevious(params) {
+      
+    }
+    </script>
+  
+  <script>
+     setInterval(function () {
+      var id = $("#bookingid").val();
+      var service = $("#service").val();
+      var classes = $("#classes").val();
+      var model = $("#model").val();
+      var carbrand = $("#carbrand").val();
+      var year = $("#year").val();
+      var lat = $("#lat").val();
+      var long = $("#long").val();
+     
+      // console.log(id);
+        $.ajax({
+           type:'POST',
+           url:'/getupdate',
+           headers: {
+                  'X-CSRF-TOKEN' : $('input[name="_token"]').val()
+            },
+            data : {
+                  id: id,
+                  service: service,
+                  classes: classes,
+                  model: model,
+                  carbrand: carbrand,
+                  year: year,
+                  lat: lat,
+                  long: long
+              },
+           success:function(data) {
+            console.log(data);
+            if (data == 'pending') {
+            }
+            else if(data == 'accepted'){
+              document.getElementById("firstNext").click();
+            }
+            else if(data == 'workinprogress'){
+              document.getElementById("firstNext").click();
+              document.getElementById("secondNext").click();
+            }
+            else if(data == 'completed'){
+              document.getElementById("firstNext").click();
+              document.getElementById("secondNext").click();
+              document.getElementById("thirdNext").click();
+            }
+  
+           }
+           
+        });
+     }, 10000);
   </script>
     
 @endsection

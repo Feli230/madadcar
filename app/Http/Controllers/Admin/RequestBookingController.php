@@ -11,49 +11,6 @@ use Illuminate\Support\Facades\Auth;
 
 class RequestBookingController extends Controller
 {
-    public function getCurrentLocation(Type $var = null)
-    {
-
-    try {
-        $lat = 0;
-        $lng = 0;
-        
-
-        $GOOGLE_API_KEY_HERE = '';
-        $data_location = "https://maps.google.com/maps/api/geocode/json?key=".$GOOGLE_API_KEY_HERE."&address=".str_replace(" ", "+", $address)."&sensor=false";
-        $data = file_get_contents($data_location);
-        dd($data);
-        usleep(200000);
-        // turn this on to see if we are being blocked
-        // echo $data;
-        $data = json_decode($data);
-        if ($data->status=="OK") {
-            $lat = $data->results[0]->geometry->location->lat;
-            $lng = $data->results[0]->geometry->location->lng;
-
-            if($lat && $lng) {
-                return array(
-                    'status' => true,
-                    'lat' => $lat, 
-                    'long' => $lng, 
-                    'google_place_id' => $data->results[0]->place_id
-                );
-            }
-        }
-        if($data->status == 'OVER_QUERY_LIMIT') {
-            return array(
-                'status' => false, 
-                'message' => 'Google Amp API OVER_QUERY_LIMIT, Please update your google map api key or try tomorrow'
-            );
-        }
-
-    } catch (Exception $e) {
-
-    }
-
-    return array('lat' => null, 'long' => null, 'status' => false);
-
-    }
     
     public function getServiceId($service)
     {
@@ -91,54 +48,39 @@ class RequestBookingController extends Controller
 
     public function requestSent(Request $request)
     {
-// dd($request->input());
-        $cardetails = $request->input();
-        $service_id = $this->getServiceId($request->service);
-        // getCurrentUserId();
-        // dd(Auth::id());
-        $user_id = Auth::id();
-        $clientLocation =  [$request->lat, $request->long];
-        // dd($clientLocation);
-        $clientLocation = json_encode($clientLocation);
-        $booking = new RequestBooking;
-        $booking->client_id = $user_id;
-        $booking->sp_id = null;
-        $booking->service_id = $service_id;
-        $booking->car_model = $request->model;
-        $booking->car_brand = $request->carbrand;
-        $booking->car_year = $request->year;
-        $booking->client_location = $clientLocation;
-        $booking->comment = null;
-        $booking->status = "pending";
-        $booking->date = date('Y-m-d');
-        $booking->save();
-
-        
-
-            
-        return view('client/requestsent', compact('cardetails'));
-    }
-
-    public function checkStatus()
-    {
-        print(Auth::id());
-        $service_id = DB::table('request_bookings')->select('status')->where('client_id', Auth::id())->orderBy('req_id', 'desc')->first();
-        if($service_id->status == "accepted")
+        if($request->lat == null && $request->long == null)
         {
-
+            return redirect()->back()->withErrors("location not selected")->withInput();
+        }
+        else{
+            $cardetails = $request->input();
+            $service_id = $this->getServiceId($request->service);
+            $user_id = Auth::id();
+            $clientLocation =  [$request->lat, $request->long];
+            $clientLocation = json_encode($clientLocation);
+            $booking = new RequestBooking;
+            $booking->client_id = $user_id;
+            $booking->sp_id = null;
+            $booking->service_id = $service_id;
+            $booking->car_model = $request->model;
+            $booking->car_brand = $request->carbrand;
+            $booking->car_year = $request->year;
+            $booking->client_location = $clientLocation;
+            $booking->comment = null;
+            $booking->status = "pending";
+            $booking->date = date('Y-m-d');
+            $booking->save();
+            return redirect()->route('waiting', ['cardetails'=> $cardetails, 'booking'=> $booking]);
         }
     }
 
-    public function acceptReq()
+    public function waiting(Request $request)
     {
-        print(Auth::id());
-        $service_id = DB::table('request_bookings')->select('status')->where('client_id', Auth::id())->orderBy('req_id', 'desc')->first();
-        if($service_id->status == "accepted")
-        {
 
-        }
-        // print Auth::id();
-        // return view('/home');
+        $booking = RequestBooking::select('*')->where('req_id', $request->booking)->first();
+        // dd($booking, $request->cardetails);
+        $cardetails = $request->cardetails;
+        return view('client/requestsent', compact('cardetails','booking'));
         
     }
 
@@ -149,5 +91,41 @@ class RequestBookingController extends Controller
         
     }
 
+    //ajax call to  get  the status
+    public function getUpdate(Request $request )
+    {
+        $status = RequestBooking::select('status')->where('req_id', $request->id )->get();
+        return response()->json($status[0]->status);
+    }
 
+
+    //ajax call from sp to chnage the status
+    public function cancelRequest(Request $request )
+    {
+        RequestBooking::where('req_id', $request->id)->update(['status' => "failed"]);
+        return response()->json('Request Canceled');
+    }
+
+    //ajax call from sp to chnage the status
+    public function workRequest(Request $request )
+    {
+        RequestBooking::where('req_id', $request->id)->update(['status' => "workinprogress"]);
+        return response()->json('Work in Progress');
+    }
+    //ajax call from sp to chnage the status
+    public function completeRequest(Request $request )
+    {
+        RequestBooking::where('req_id', $request->id)->update(['status' => "completed"]);
+        return response()->json('Completed Request');
+    }
+
+
+    //after complete the request from sp
+    public function requestComplete()
+    {
+        //return to the page where amunt is showing
+    }
+
+
+    
 }

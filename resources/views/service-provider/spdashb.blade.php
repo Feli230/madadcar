@@ -12,6 +12,32 @@
 
 @section('content')
 
+<div class="container">
+  
+  <form>
+    
+    <div class="group">      
+      <input type="text" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Name</label>
+    </div>
+      
+    <div class="group">      
+      <input type="text" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Email</label>
+    </div>
+    
+  </form>
+      
+  <p class="footer">
+    a <a href="https://scotch.io/tutorials/css/google-material-design-input-boxes-in-css3" target="_blank">tutorial</a> by <a href="https://scotch.io" target="_blank">scotch.io</a>
+  </p>
+  
+</div>
+
 
 <div class="w3-row-padding w3-center w3-margin-top">
 <div class="w3-third">

@@ -9,6 +9,8 @@
     <div class="border-line">
         <p style="border: 1px"></p>
     </div>
+
+    
     <div class="car-model">
         <h3>Enter Car Model</h3>  
         <div class="login-box">
@@ -19,24 +21,25 @@
 
               <div class="user-box">
                 <input type="text" name="model" required>
-                <label>Car Model</label>
+                <label>Car Name</label>
               </div>
               <div class="user-box">
                 <input type="text" name="carbrand" required>
                 <label>Car Brand</label>
               </div>
               <div class="user-box">
-                <input type="number" name="year" min="1900" max="2099" step="1" value="2016">
+                <input type="number" name="year" min="1900" max="2099" step="1" placeholder="2016">
                 <label>Year</label>
 
               </div>
-              <button type="submit" name="submit">
+              <button type="submit" name="submit" class="btn btn-danger" id="btn">Continue</button>
+              {{--  <button type="submit" name="submit">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 Next
-              </button>
+              </button>  --}}
             </form>
         </div>
     </div>
