@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('request_id');
             $table->foreign('request_id')->references('req_id')->on('request_bookings');
-            $table->double('amount');
+            $table->string('status');
+            $table->string('image');
             $table->timestamps();
         });
     }

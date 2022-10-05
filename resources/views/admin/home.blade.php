@@ -12,7 +12,7 @@
             <div class="d-flex m-2">
               <div class="card red " style="width: 15rem; height:100px;">
                 <div class="card-body">
-                    <a href="{{route('previousrecords')}}">
+                    <a href="{{route('deposit')}}">
                   <h6 class="card-title">Deposit</h6>
                     </a>
                 </div>

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('role');
             $table->string('cnic');
+            $table->string('phone');
             $table->rememberToken();
             $table->timestamps();
         });

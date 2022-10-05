@@ -21,7 +21,7 @@
 {
         position: relative;
         top: 4px;
-        left: 257px;
+        left: 265px;
 }
 
 .pcont2
@@ -42,3 +42,9 @@
         width: 66.6% !important;
 }
 
+.clientdetails
+{
+        position: relative;
+        left: 44px;
+        top: 4px;
+}

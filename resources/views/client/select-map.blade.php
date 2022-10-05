@@ -186,15 +186,15 @@
                     @break
 
                   @endswitch
+                  {{--  <div class="icons">
 
-                  <div class="icons">
-
-                    <i class="fa fa-codepen">Name: {{$cardetails['model']}}</i>
-                    <i class="fa fa-instagram">Brand: {{$cardetails['carbrand']}}</i>
-                    <i class="fa fa-dribbble">Year: {{$cardetails['year']}}</i>
-                    <p>Price: 700 </p>
-
-                  </div>
+                    <h5>Name: {{$cardetails['model']}}</h5>
+                    <h5>Brand: {{$cardetails['carbrand']}}</h5>
+                    <h5>Year: {{$cardetails['year']}}</h5>
+                    <h5>price: 700 </h5>
+        
+                  </div>  --}}
+                  
                   {{--  @if ($errors->any())
                       <div class="alert alert-danger">
                           <ul>
@@ -206,6 +206,15 @@
                   @endif  --}}
               </div>
            </div>
+           <div class="sprice">
+
+            <h5>Name: {{$cardetails['model']}}</h5>
+            <h5>Brand: {{$cardetails['carbrand']}}</h5>
+            <h5>Year: {{$cardetails['year']}}</h5>
+            <h5>Price: {{$cardetails['s_price']}}</h5>
+
+
+          </div>
             <form method="POST" action="{{route('requestsent')}}">
               @csrf
     {{--  {{dd($cardetails);}}  --}}
@@ -215,6 +224,8 @@
               <input type="text" name="model" value="{{$cardetails['model']}}" hidden>
               <input type="text" name="carbrand" value="{{$cardetails['carbrand']}}" hidden>
               <input type="text" name="year" value="{{$cardetails['year']}}" hidden>
+              <input type="text" name="s_price" value="{{$cardetails['s_price']}}" hidden>
+
     
               <div class="latlongs">
                

@@ -85,34 +85,47 @@ class RequestBookingController extends Controller
     }
 
     //wallet
-    public function walletPay()
+    public function walletPay($id)
     {
-        return view('service-provider/walletpay');
+        // dd($id);
+        $booking = RequestBooking::select('sp_id')->where('req_id', $id)->first();
+        $service = Service::select('*')->where('id', $booking->sp_id)->first();
+        // dd($service);
+        return view('service-provider/walletpay', compact('id', 'service'));
         
     }
 
     //ajax call to  get  the status
-    public function getUpdate(Request $request )
+    public function getUpdate(Request $request)
     {
         $status = RequestBooking::select('status')->where('req_id', $request->id )->get();
         return response()->json($status[0]->status);
     }
 
+    //ajax call to  get  the sp INfo
+    public function getspInfo(Request $request)
+    {
+        $spinfo = RequestBooking::join('users as sp', 'sp.id', '=', 'request_bookings.sp_id')
+        ->select( 'sp.name as sp_name', 'sp.phone as sp_phone')
+        ->where('request_bookings.req_id', $request->id)->first();
+        return response()->json($spinfo);
+    }
+    
 
-    //ajax call from sp to chnage the status
+    //ajax call from sp to chnage the status when click on cancel request 
     public function cancelRequest(Request $request )
     {
         RequestBooking::where('req_id', $request->id)->update(['status' => "failed"]);
         return response()->json('Request Canceled');
     }
 
-    //ajax call from sp to chnage the status
+    //ajax call from sp to chnage the status when clicked on work in progress
     public function workRequest(Request $request )
     {
         RequestBooking::where('req_id', $request->id)->update(['status' => "workinprogress"]);
         return response()->json('Work in Progress');
     }
-    //ajax call from sp to chnage the status
+    //ajax call from sp to chnage the status when clicked on complete from service provider
     public function completeRequest(Request $request )
     {
         RequestBooking::where('req_id', $request->id)->update(['status' => "completed"]);
@@ -123,9 +136,23 @@ class RequestBookingController extends Controller
     //after complete the request from sp
     public function requestComplete()
     {
-        //return to the page where amunt is showing
+        $spinfo = RequestBooking::join('users as sp', 'sp.id', '=', 'request_bookings.sp_id')
+        ->select( 'sp.name as sp_name', 'sp.phone as sp_phone')
+        ->where('request_bookings.req_id', '426')->first();
+
+        dd($spinfo);
     }
 
 
+    //coments and reviews
+    public function comtsReviews(Request $request)
+    {
+        // dd($request->input());
+        $review = ['comment' => $request->comment, 'review' => $request->rate];
+        RequestBooking::where('req_id', $request->req_id)->update(['comment' => $review]);
+
+        return redirect()->route('user.index');
+        
+    }
     
 }

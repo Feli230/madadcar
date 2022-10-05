@@ -60,7 +60,7 @@
             @csrf
 
             <div class="row">
-
+                <input type="text" name="req_id" value="{{$id}}" hidden/>
     
 
                 <div class="col-md-6">
@@ -116,7 +116,7 @@
 
             <div class="uppercont d-flex">
                  <h4>Total Amount:</h4>
-                 <p class="pcont1">500</p>
+                 <p class="pcont1">{{$service->service_price}}</p>
                 
             </div>
             <div class="middlecont d-flex ">
@@ -128,7 +128,7 @@
             <hr>
             <div class="amntpay d-flex ">
                 <h4>Amount Payable:</h4>
-                <p class="pcont3">100</p>
+                <p class="pcont3">{{$service->service_price * 0.2}}</p>
                </div>
            
             </div>

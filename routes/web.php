@@ -64,11 +64,13 @@ Route::get('/acceptreq', [RequestBookingController::class, 'acceptReq'])->name('
 Route::get('/adminclients' , [UserController::class, 'adminClient'])->name('adminclients');
 Route::get('/adminserviceproviders' , [UserController::class, 'adminService'])->name('adminserviceproviders');
 Route::get('/allrecords' , [UserController::class, 'allRecords'])->name('allrecords');
+Route::get('/deposit' , [UserController::class, 'Deposit'])->name('deposit');
+
 Route::get('/testings' , [UserController::class, 'Testings'])->name('testings');
 Route::get('/getTotalPrice', [UserController::class, 'getTotalPrice'])->name('getTotalPrice');
 
 //service provider wallet
-Route::get('/walletpay' , [RequestBookingController::class, 'walletPay'])->name('walletpay');
+Route::get('/walletpay/{id?}' , [RequestBookingController::class, 'walletPay'])->name('walletpay');
 
 //service dashboard
 Route::get('/dashboard' , [UserController::class, 'serviceDashboard'])->name('dashboard');
@@ -81,6 +83,9 @@ Route::post('image-upload', [ UserController::class, 'imageUploadPost' ])->name(
 //ajax post update for request status
 Route::post('/getupdate', [RequestBookingController::class, 'getUpdate'])->name('getupdate');
 
+//ajax post Service provider info
+Route::post('/getspinfo', [RequestBookingController::class, 'getspInfo'])->name('getspinfo');
+
 //ajax get routes for service provider change status
 Route::get('/cancelRequest', [RequestBookingController::class, 'cancelRequest'])->name('cancelRequest');
 Route::get('/workRequest', [RequestBookingController::class, 'workRequest'])->name('workRequest');
@@ -88,4 +93,10 @@ Route::get('/completeRequest', [RequestBookingController::class, 'completeReques
 //after complte request from sp
 Route::get('/request-completed', [RequestBookingController::class, 'requestComplete'])->name('requestComplete');
 
+//comments and reviews
 
+Route::post('/comtsreviews', [RequestBookingController::class, 'comtsReviews'])->name('comtsreviews');
+
+
+
+Route::get('/demogetupdates', [RequestBookingController::class, 'requestComplete']);

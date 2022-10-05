@@ -55,17 +55,20 @@
               @break
 
               @endswitch
-                <div class="icons">
-                <i class="fa fa-codepen"> Name: {{$cardetails['model']}}</i>
-                <i class="fa fa-instagram">Brand: {{$cardetails['carbrand']}}</i>
-                <i class="fa fa-dribbble"> Year: {{$cardetails['year']}}</i>
-                <i class="fa fa-dribbble">Latitude: {{$cardetails['lat']}}</i>
-                <i class="fa fa-dribbble">Longitude: {{$cardetails['long']}}</i>
-                <i class="fa fa-instagram">Price: 700 </i>
-                </div>
+            
+                {{--  <div class="icons">
+                <p> Name: {{$cardetails['model']}}</p>
+                <p>Brand: {{$cardetails['carbrand']}}</p>
+                <p> Year: {{$cardetails['year']}}</p>
+                <p>Latitude: {{$cardetails['lat']}}</p>
+                <p>Longitude: {{$cardetails['long']}}</p>
+                <p>Price: {{$cardetails['s_price']}} </p>
+                </div>  --}}
             </div>  
+           
         
           </div>
+          
       <form class="stepformheader" method="POST" action="{{route('acceptreq')}}">
         @csrf
           <ul id="progressbar">
@@ -93,13 +96,29 @@
           <input type="button" name="next" class="next action-button"  id="thirdNext"   value="Submit" hidden/>
           <input type="button" name="previous" class="previous action-button-previous"  id="secondPrev"  value="Previous" hidden/>
         </fieldset>   
-        <div class="cancelbtn">
-          <a href="#">
-          <button type="button" class="btn btn-danger">Cancel Request</button>
-          </a>
+
+        <div class="cancelbtn" id="cancel">
+          
+          <a href="/" type="button" name="cancel"  class="btn btn-danger">Cancel Request</a>
+          
+        </div>
+        <div class="servicepdetails" id="sp_detail">
+          
+        
+          
         </div>
 
       </form>
+
+      <div class="sprice">
+        <h5> Name: {{$cardetails['model']}}</h5>
+        <h5>Brand: {{$cardetails['carbrand']}}</h5>
+        <h5> Year: {{$cardetails['year']}}</h5>
+        <h5>Price: {{$cardetails['s_price']}} </h5>
+        </div>
+
+
+
 {{--  {{dd($booking, $cardetails)}}  --}}
       <input type="text" name="bookingid" id="bookingid" value="{{$booking->req_id}}" hidden />
     <input type="text" name="service" id="service" value="{{$cardetails['service']}}" hidden/>
@@ -111,9 +130,27 @@
     <input type="text" name="long" id="long" value="{{$cardetails['long']}}" hidden/>
 
     </div>
-    
+   
+
     <script type="text/javascript">
       $(document).ready(function(){
+
+       
+          const id = document.getElementById('bookingid').value;
+  console.log(id);
+          $("#cancel").click(function(){
+              $.ajax({
+               type:'GET',
+               url:'/cancelRequest',
+              data : {
+                      id: id
+                  },
+               success:function(data) {
+                console.log(data);
+                $('#rateus').modal('show');
+               }
+            });
+          });
       
   var current_fs, next_fs, previous_fs; //fieldsets
   var opacity;
@@ -186,29 +223,35 @@
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
   </script>
   
+  
   <script>
-    function movetonext(params) {
-      
-    }
-  
-  
-    function movetoprevious(params) {
-      
-    }
+    setInterval(function () {
+      var id = $("#bookingid").val();
+        $.ajax({
+           type:'POST',
+           url:'/getspinfo',
+           headers: {
+                  'X-CSRF-TOKEN' : $('input[name="_token"]').val()
+            },
+            data : {
+                  id: id,
+              },
+           success:function(data) {
+            console.log(data);
+            
+            document.getElementById('sp_detail').innerHTML  = "<h4>Service Provider: "+ data.sp_name + " <br>Contact Info: "+ data.sp_phone+" </h4>";
+
+           }
+           
+        });
+     }, 10000);
     </script>
   
   <script>
      setInterval(function () {
       var id = $("#bookingid").val();
-      var service = $("#service").val();
-      var classes = $("#classes").val();
-      var model = $("#model").val();
-      var carbrand = $("#carbrand").val();
-      var year = $("#year").val();
-      var lat = $("#lat").val();
-      var long = $("#long").val();
+      
      
-      // console.log(id);
         $.ajax({
            type:'POST',
            url:'/getupdate',
@@ -217,29 +260,33 @@
             },
             data : {
                   id: id,
-                  service: service,
-                  classes: classes,
-                  model: model,
-                  carbrand: carbrand,
-                  year: year,
-                  lat: lat,
-                  long: long
               },
            success:function(data) {
             console.log(data);
+          
             if (data == 'pending') {
             }
             else if(data == 'accepted'){
               document.getElementById("firstNext").click();
+              document.getElementById("cancel").style.display='none';
+
             }
             else if(data == 'workinprogress'){
               document.getElementById("firstNext").click();
               document.getElementById("secondNext").click();
+              document.getElementById("cancel").style.display='none';
+
             }
             else if(data == 'completed'){
               document.getElementById("firstNext").click();
               document.getElementById("secondNext").click();
               document.getElementById("thirdNext").click();
+              document.getElementById("cancel").style.display='none';
+              $('#rateus').modal('show');
+
+            }
+            else if(data == 'failed'){
+              $('#cacelRequest').modal('show');
             }
   
            }
@@ -247,5 +294,7 @@
         });
      }, 10000);
   </script>
+
+
     
 @endsection

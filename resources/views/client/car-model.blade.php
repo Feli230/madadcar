@@ -18,6 +18,8 @@
               @csrf
               <input type="text" name="service" value="{{$service}}" hidden>
               <input type="text" name="class" value="{{$class}}" hidden>
+              <input type="text" name="s_price" value="{{$s_price}}" hidden>
+
 
               <div class="user-box">
                 <input type="text" name="model" required>
@@ -86,11 +88,7 @@
           @break
 
         @endswitch
-            <div class="icons">
-              
-          
-            
-            </div>
+           
         </div>
         </div>
         

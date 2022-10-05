@@ -77,11 +77,11 @@
             <!-- /User Card -->
         </div>
         
-        <div class="walletbtn">
+        {{--  <div class="walletbtn">
         <a href="{{route('walletpay')}}">
             <button type="button" class="btn btn-warning">Wallet</button>
         </a>
-        </div>
+        </div>  --}}
           </div>
         </div>
         
@@ -129,8 +129,8 @@
                     <a href="/" type="button" class="btn btn-sm btn-outline-danger" name="cancel" >Cancel Request</a>
                 </div>
                 
-                @if ($acceptedService['status'] == 'accepted')
-                    <div class="col-6 actionButton" id="work" style="align-content: center; display: block" >
+                @if ($acceptedService['status'] == 'accepted' || $acceptedService['status'] == 'pending')
+                    <div class="col-6 actionButton" id="work" style="align-content: center;" >
                         <button class="btn btn-sm btn-outline-primary" name="work" >Strart Working</button>
                     </div>
                     <div class="col-6 actionButton" id="complete" style="align-content: center; display:none;">
@@ -204,8 +204,10 @@
                                     <h4 class="mb-0 mt-0" style="text-align: center">{{$request['service']}}</h4>
     
                                     <div class="clientdetails">
-                                    <div class="mt-2">
-                                        <p style="text-align: center"><strong>Name: </strong>{{$request['name']}}</p>
+                                    <div class="mt-2 d-flex">
+                                        <p><strong>Name: </strong>{{$request['name']}}</p>
+                                        <p style="position: absolute; left:193px;"><strong>Phone: </strong>{{$request['phone']}}</p>
+
                                     </div>
                                     <div class="d-flex pr-1">
                                         <p><strong>Car Name: </strong>{{$request['model']}}</p>
@@ -248,11 +250,12 @@
                         
                         <h4 class="mb-0 mt-0" style="text-align: center">{{$acceptedService['service']}}</h4>
 
-                        <div class="clientdetails">
+                        <div class="">
                             <div class="mt-2">
                                 <p style="text-align: center"><strong>Name: </strong>{{$acceptedService['name']}}</p>
                             </div>
                             <div class="">
+                                <p><strong>Phone: </strong>{{$acceptedService['phone']}}</p>
                                 <p><strong>Car Name: </strong>{{$acceptedService['model']}}</p>
                                 <p><strong>Car Brand: </strong>{{$acceptedService['brand']}}</p>
                             </div>
@@ -305,6 +308,7 @@
                      }
                   });
                 });
+                
                 $("#work").click(function(){
                     this.style.display = 'none';
                     document.getElementById('complete').style.display = 'block';
