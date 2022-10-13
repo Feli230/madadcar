@@ -310,6 +310,11 @@ class UserController extends Controller
     
   }
 
+  public function statusupdate($id)
+  {
+    $payment_status = Payment::where('id', $id)->update(['status' => "paid"]);
+    return response()->json($id);
+  }
   
 
 }

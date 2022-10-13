@@ -27,7 +27,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        {{--  <a href="/statuspaid" type="button" class="btn btn-primary">Paid</a>  --}}
+        <button type="button" onclick="changestatus({{$d->id}})" class="btn btn-primary">Paid</button>
       </div>
     </div>
   </div>
@@ -75,4 +76,20 @@
       
     });
   </script>
+
+    <script type="text/javascript">
+      function changestatus(id){
+          $.ajax({
+            type:'GET',
+            url:"/statuspaid/"+id,
+           
+            success:function(data) {
+             console.log(data);
+             window.location.href = "/deposit";
+             
+              }
+          });
+      };
+  </script>
+
 @endsection

@@ -47,7 +47,7 @@
                     <i data-feather="check" class="font-medium-2"></i>
                     </span>
                     <div class="ms-75">
-                    <h4 class="mb-0">500</h4>
+                    <h4 class="mb-0">{{$numReqCompleted}}</h4>
                     <small style="position: absolute; left: 24px;">Request Completed</small>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <i data-feather="briefcase" class="font-medium-2"></i>
                     </span>
                     <div class="ms-75">
-                    <h4 class="mb-0">568</h4>
+                    <h4 class="mb-0">{{$rating}}/5</h4>
                     <small>Ratings</small>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                     <i data-feather="briefcase" class="font-medium-2"></i>
                     </span>
                     <div class="ms-75">
-                    <h4 class="mb-0">Rs.1.2k</h4>
+                    <h4 class="mb-0">Rs.{{$sumprice}}</h4>
                     <small>Wallet</small>
                     </div>
                 </div>
@@ -200,8 +200,44 @@
                             <div class="d-flex align-items-center">
     
                                 <div class="ml-3 w-100">
+                                     @switch($request['service'])
+
+
+                                        @case('breakdown')
+                                        <h4 class="mb-0 mt-0" style="text-align: center">Break Down</h4>
+                                        @break
+
+                                        
+                                        @case('battery')
+                                        <h4 class="mb-0 mt-0" style="text-align: center">Battery</h4>
+                                        @break
+                                        
+                                        @case('carlock')
+                                        <h4 class="mb-0 mt-0" style="text-align: center">Car Lock</h4>
+                                        @break
+                                        
+                                        @case('refueling')
+                                        <h4 class="mb-0 mt-0" style="text-align: center">Refueling</h4>
+                                        @break
+                                        
+                                        @case('towtruck')
+                                        <h4 class="mb-0 mt-0" style="text-align: center">Tow Truck</h4>
+                                        @break
+                                        
+                                        @case('flattyre')
+                                        <h4 class="mb-0 mt-0" style="text-align: center">Flat tyre</h4>
+                                        @break
+                                        
+                                        {{--  @case('carwash')
+                                        <h4 class="mb-0 mt-0" style="text-align: center">Car Wash</h4>
+                                        @break
+
+                                        @case('others')
+                                        <h4 class="mb-0 mt-0" style="text-align: center">Others</h4>
+                                        @break  --}}
+
+                                    @endswitch
                                     
-                                    <h4 class="mb-0 mt-0" style="text-align: center">{{$request['service']}}</h4>
     
                                     <div class="clientdetails">
                                     <div class="mt-2 d-flex">

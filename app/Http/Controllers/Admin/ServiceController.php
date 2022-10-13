@@ -74,9 +74,36 @@ class ServiceController extends Controller
        $user = $this->getUSerInfo(Auth::id());
        $username = $user->name;
 
+       $profile = RequestBooking::select('*')->where('status', 'completed')->where('sp_id',Auth::id())->get();
+        // number of completed request 
+       $numReqCompleted= count($profile);
+
+    //    ratio of total rating
+        $count=0;
+        $sum =0 ;
+        foreach ($profile as $key) {
+            $comment = json_decode($key->comment);
+            if ($comment != null) {
+                $sum = $sum + (int)$comment->review;
+                $count = $count + 1;
+            }  
+        }
+        $rating =  ($sum/($count * 5)) * 5;
+
+        // get wallet value
+        $sumprice = 0;
+        foreach ($profile as $key) {
+            $service_price = Service::select('service_price')->where('id', $key->service_id)->first();
+            // dd(json_decode($service_price->service_price));
+ 
+           $sumprice = $sumprice + json_decode($service_price->service_price);
+
+        }
+
+        // total requests are comming
         $requestBookings = $this->getRequests(Auth::id());    
-        // dd($requestBookings);
-        return view('service-provider.home', compact('requestBookings', 'username'));
+
+        return view('service-provider.home', compact('requestBookings', 'username','numReqCompleted', 'rating', 'sumprice'));
     }
     
 

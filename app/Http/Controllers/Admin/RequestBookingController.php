@@ -88,8 +88,9 @@ class RequestBookingController extends Controller
     public function walletPay($id)
     {
         // dd($id);
-        $booking = RequestBooking::select('sp_id')->where('req_id', $id)->first();
-        $service = Service::select('*')->where('id', $booking->sp_id)->first();
+        $booking = RequestBooking::select('service_id')->where('req_id', $id)->first();
+        // dd($booking);
+        $service = Service::select('*')->where('id', $booking->service_id)->first();
         // dd($service);
         return view('service-provider/walletpay', compact('id', 'service'));
         

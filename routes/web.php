@@ -7,6 +7,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\RequestBookingController;
+use App\Http\Controllers\Admin\PaymentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -100,3 +102,5 @@ Route::post('/comtsreviews', [RequestBookingController::class, 'comtsReviews'])-
 
 
 Route::get('/demogetupdates', [RequestBookingController::class, 'requestComplete']);
+
+Route::get('/statuspaid/{id?}', [UserController::class,'statusupdate'])->name('statuspaid');
